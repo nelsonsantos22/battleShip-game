@@ -34,9 +34,4 @@ public class Messages {
     public final static String CONNECTION_ERROR = "Connection Failed";
 
 
-
-
-
-
-
 }
