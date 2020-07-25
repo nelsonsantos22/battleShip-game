@@ -18,19 +18,18 @@ public class Server {
 
     private Socket clientSocket;
     private ServerSocket serverSocket;
-    private ExecutorService fixedPool = Executors.newFixedThreadPool(5);
+    private ExecutorService fixedPool = Executors.newFixedThreadPool(2);
     private LinkedList<PlayerHandler> list = new LinkedList<>();
     private int port;
-    private Game game;
+    private Game game = new Game();
 
 
-    public Server(Game game) {
-        this.game = game;
-        init(game);
+    public Server() {
+        init();
 
     }
 
-    private void init(Game game) {
+    private void init() {
 
         Prompt prompt = new Prompt(System.in,System.out);
 
@@ -39,11 +38,11 @@ public class Server {
         portScanner.setMessage("Port: ");
         port = prompt.getUserInput(portScanner);
 
-        startServer(game);
+        startServer();
 
     }
 
-    public void startServer(Game game) {
+    public void startServer() {
 
         try {
 
@@ -57,8 +56,7 @@ public class Server {
 
                 clientSocket = serverSocket.accept();
 
-                PlayerHandler playerHandler = new PlayerHandler(clientSocket, list, game);
-
+                PlayerHandler playerHandler = new PlayerHandler(clientSocket, game);
                 fixedPool.execute(playerHandler);
                 list.add(playerHandler);
 

@@ -4,9 +4,7 @@ import org.academiadecodigo.battleship.server.Server;
 
 public class Main {
     public static void main(String[] args) {
-        Game game1 = new Game();
-
-        Server server = new Server(game1);
+        Server server = new Server();
     }
 }
 

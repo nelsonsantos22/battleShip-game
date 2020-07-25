@@ -1,21 +1,26 @@
 package org.academiadecodigo.battleship;
 
-import org.academiadecodigo.battleship.battlefield.Battlefield;
-
 public class Game {
+    Field field1, field2;
+    Player player1, player2;
 
-    private Battlefield battlefield;
     private String action;
+    private int counter = 0;
 
     public Game() {
-        this.battlefield = new Battlefield();
     }
 
     private void init() {
         //inicializa coisinhas
     }
 
-    private void start() {
+    public void start() {
+        counter++;
+        if(counter==2){
+            System.out.println("game has started..."+counter);
+
+        }
+        System.out.println(counter);
         //start do game();
         //boatPalcement();
         //checkPosition();

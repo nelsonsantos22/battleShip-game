@@ -1,6 +1,7 @@
 package org.academiadecodigo.battleship.server;
 
 import org.academiadecodigo.battleship.Game;
+import org.academiadecodigo.battleship.Player;
 import org.academiadecodigo.battleship.menu.Menu;
 
 import java.io.*;
@@ -13,24 +14,23 @@ public class PlayerHandler implements Runnable{
     private PrintWriter out;
     private LinkedList<PlayerHandler> list;
     private String messageIn;
-    private Game game;
     private Menu menu;
+    private Game game;
+    private Player player;
 
-
-    public PlayerHandler(Socket playerSocket, LinkedList list, Game game){
+    public PlayerHandler(Socket playerSocket){
         this.playerSocket = playerSocket;
-        this.list = list;
-        this.game = game;
+        //this.game = game;
+        this.player = new Player();
     }
 
 
-    public void handleClient(Socket clientSocket){
-
+  public void handleClient(Socket clientSocket){
         try {
 
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            menu = new Menu(this);
+            menu = new Menu(this, game);
 
 
             while (true) {
@@ -44,7 +44,7 @@ public class PlayerHandler implements Runnable{
                     break;
                 }
 
-                game.setAction(getMessageIn());
+           //     game.setAction(getMessageIn());
                 menu.onMenuSelection(messageIn);
 
             }
