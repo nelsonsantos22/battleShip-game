@@ -1,16 +1,19 @@
-package org.academiadecodigo.battleship.boat;
+package org.academiadecodigo.battleship.boats;
 
 import java.util.ArrayList;
 
 public class Boat {
 
-    private BoatType boatType;
+    //private BoatType boatType;
     private int posX, posY;
+    protected int size;
+    private BoatOrientation boatOrientation;
     private ArrayList<Position> positionsArrayList = new ArrayList<>();
 
 
-    public Boat(BoatType boatType, int posX, int posY) {
-        this.boatType = boatType;
+    public Boat(BoatOrientation boatOrientation, int posX, int posY) {
+        //this.boatType = boatType;
+        this.boatOrientation = boatOrientation;
         this.posY = posX;
         this.posY = posY;
 

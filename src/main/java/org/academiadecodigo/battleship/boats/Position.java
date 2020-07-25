@@ -1,4 +1,4 @@
-package org.academiadecodigo.battleship.boat;
+package org.academiadecodigo.battleship.boats;
 
 public class Position {
 

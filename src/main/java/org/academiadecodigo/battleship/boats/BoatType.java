@@ -1,6 +1,6 @@
-package org.academiadecodigo.battleship.boat;
+package org.academiadecodigo.battleship.boats;
 
-public enum BoatType {
+/*public enum BoatType {
     DESTROYER(3),
     SUBMARINE(3),
     BATTLESHIP(4),
@@ -22,6 +22,4 @@ public enum BoatType {
     public int getBoatSize() {
         return boatSize;
     }
-}
-
-}
+}*/

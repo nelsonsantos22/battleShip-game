@@ -19,7 +19,7 @@ public class Messages {
     //Game Messages
     public final static String PLACE_BOATS = "You need to place your Boats!";
     public final static String BOATS_PLACED = "All your boats are placed";
-    public final static String ERROR_PLACE_BOATS = "You can't put your boat there!"
+    public final static String ERROR_PLACE_BOATS = "You can't put your boat there!";
     public final static String WAIT_FOR_MOVE = "Wait for your turn";
     public final static String MAKE_MOVE = "It's your turn";
     public final static String HIT_WATER_SHOOT = "Oh No, I've missed!";
