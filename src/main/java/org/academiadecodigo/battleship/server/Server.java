@@ -10,32 +10,40 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.LinkedList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Server {
 
     private Socket clientSocket;
     private ServerSocket serverSocket;
-    private BufferedReader inputBufferedReader;
+    private ExecutorService fixedPool = Executors.newFixedThreadPool(5);
+    private LinkedList<PlayerHandler> list = new LinkedList<>();
     private int port;
+    private Game game;
 
-    Game game;
 
-    public Server() {
-
-        init();
+    public Server(Game game) {
+        this.game = game;
+        init(game);
 
     }
 
-    private void init() {
+    private void init(Game game) {
+
         Prompt prompt = new Prompt(System.in,System.out);
 
         IntegerInputScanner portScanner = new IntegerInputScanner();
 
         portScanner.setMessage("Port: ");
         port = prompt.getUserInput(portScanner);
+
+        startServer(game);
+
     }
 
-    public void startServer() {
+    public void startServer(Game game) {
 
         try {
 
@@ -50,8 +58,10 @@ public class Server {
 
                 clientSocket = serverSocket.accept();
 
-                PlayerHandler playerHandler = new PlayerHandler(clientSocket);
-                //playerHandler.handleClient();
+                PlayerHandler playerHandler = new PlayerHandler(clientSocket, list, game);
+
+                fixedPool.execute(playerHandler);
+                list.add(playerHandler);
 
             }
 

@@ -1,5 +1,9 @@
 package org.academiadecodigo.battleship.server;
 
+import org.academiadecodigo.battleship.Game;
+import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
+
+import java.awt.*;
 import java.io.*;
 import java.net.Socket;
 import java.util.LinkedList;
@@ -7,17 +11,17 @@ import java.util.LinkedList;
 public class PlayerHandler implements Runnable{
 
     private Socket playerSocket;
-    //private BufferedReader in;
     private PrintWriter out;
-    LinkedList<PlayerHandler> list;
+    private LinkedList<PlayerHandler> list;
+    private String messageIn;
+    private Game game;
 
-    public PlayerHandler(Socket clientSocket/*, LinkedList list*/){
-        this.playerSocket = clientSocket;
-       /* this.list = list;*/
-        handleClient(clientSocket);
-
-
+    public PlayerHandler(Socket playerSocket, LinkedList list, Game game){
+        this.playerSocket = playerSocket;
+        this.list = list;
+        this.game = game;
     }
+
 
     public void handleClient(Socket clientSocket){
 
@@ -26,21 +30,29 @@ public class PlayerHandler implements Runnable{
 
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            String messageIn;
+
+
+            //após conexão aparece novo menu
+            Menu menu = new Menu();
+
+            System.out.println(Thread.currentThread().getName() + " connected");
+            out.write("You are in");
+            out.flush();
 
             while (true) {
-
-                out.write("hey koi");
-                out.flush();
 
                 messageIn = in.readLine();
 
                 if (messageIn == null || messageIn.equals("/quit")) {
-                    //System.out.println("*** " + Thread.currentThread().getName() + " disconnected from the chat");
                     in.close();
                     clientSocket.close();
                     break;
                 }
+
+                game.setAction(getMessageIn());
+
+                System.out.println(game.getAction());
+
 
                 System.out.println(Thread.currentThread().getName() + ": " + messageIn);
 
@@ -57,6 +69,7 @@ public class PlayerHandler implements Runnable{
         handleClient(playerSocket);
     }
 
-
-
+    public String getMessageIn() {
+        return messageIn;
+    }
 }

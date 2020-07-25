@@ -5,9 +5,9 @@ import org.academiadecodigo.battleship.battlefield.Battlefield;
 public class Game {
 
     private Battlefield battlefield;
+    private String action;
 
-
-    private Game() {
+    public Game() {
         this.battlefield = new Battlefield();
     }
 
@@ -35,7 +35,11 @@ public class Game {
 
     }
 
+    public void setAction(String action) {
+        this.action = action;
+    }
 
-
-
+    public String getAction() {
+        return action;
+    }
 }
