@@ -1,13 +1,14 @@
 package org.academiadecodigo.battleship;
 
+import org.academiadecodigo.battleship.server.Server;
+
 public class Main {
     public static void main(String[] args) {
-
+        Server server = new Server();
     }
 }
 
 /*
-
 FLOW DO GAME
     Prompt -> abrir servidor com scanner e ficar a escuta de players.
     Multi Threading -> Dividir threads por players.
@@ -23,7 +24,7 @@ TODO
      Game -> Instacia BattleField, Logica toda do jogo, se foi atingido barco, senao, se partiu  se nao.
      Menu -> Criar menu.
      Boat -> Guarda a posiçao inicial, orientaçao, estado, posiçao final
-     BoatType -> ENUM com tipos de boats, e tamanho deles.
+     BoatType -> ENUM com tipos de boats, e tamanho deles. // Good code
      Field -> Guarda posiçoes dos barcos de cada 1 dos players.
      Battlefield -> Instancia Field para cada jogador.
      BoatFactory -> Instancia novos barcos.
