@@ -6,18 +6,17 @@ import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
 
 public class Menu {
 
+    private String welcomeMessage;
+
     public Menu() {
         showMenu();
     }
 
-    private void showMenu() {
-
-        Prompt prompt = new Prompt(System.in,System.out);
+    public void showMenu() {
 
         MenuInputScanner scanner = new MenuInputScanner(MenuOptions.getMessages());
         scanner.setMessage("\n" + Messages.LOGO);
-
-        onMenuSelection(prompt.getUserInput(scanner));
+        welcomeMessage = scanner.getMessage();
 
     }
 
@@ -37,5 +36,9 @@ public class Menu {
         }
 
 
+    }
+
+    public String getWelcomeMessage() {
+        return welcomeMessage;
     }
 }

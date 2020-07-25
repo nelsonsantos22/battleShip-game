@@ -51,7 +51,6 @@ public class Server {
 
             System.out.println("Server started: " + serverSocket);
 
-            // block waiting for a client to connect
             System.out.println("Waiting for a player connection");
 
             while (true) {

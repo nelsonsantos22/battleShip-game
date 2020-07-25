@@ -1,6 +1,8 @@
 package org.academiadecodigo.battleship.server;
 
 import org.academiadecodigo.battleship.Game;
+import org.academiadecodigo.battleship.menu.Menu;
+import org.academiadecodigo.battleship.util.Messages;
 import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
 
 import java.awt.*;
@@ -15,6 +17,8 @@ public class PlayerHandler implements Runnable{
     private LinkedList<PlayerHandler> list;
     private String messageIn;
     private Game game;
+    private Menu menu = new Menu();
+
 
     public PlayerHandler(Socket playerSocket, LinkedList list, Game game){
         this.playerSocket = playerSocket;
@@ -27,16 +31,10 @@ public class PlayerHandler implements Runnable{
 
         try {
 
-
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-
-            //após conexão aparece novo menu
-            Menu menu = new Menu();
-
-            System.out.println(Thread.currentThread().getName() + " connected");
-            out.write("You are in");
+            out.write(menu.getWelcomeMessage());
             out.flush();
 
             while (true) {
@@ -50,11 +48,6 @@ public class PlayerHandler implements Runnable{
                 }
 
                 game.setAction(getMessageIn());
-
-                System.out.println(game.getAction());
-
-
-                System.out.println(Thread.currentThread().getName() + ": " + messageIn);
 
             }
         } catch (IOException e){
