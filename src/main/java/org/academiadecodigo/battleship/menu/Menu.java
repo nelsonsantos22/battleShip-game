@@ -22,7 +22,7 @@ public class Menu {
     }
 
     private void onMenuSelection(int option) {
-        
+
         switch (option) {
             case 1:
                 System.out.println(MenuOptions.START_GAME.getMessage());
