@@ -8,8 +8,20 @@ public enum BoatType {
     CARRIER(5);
 
     private int boatSize;
+    private String boatType;
 
     BoatType(int boatSize) {
         this.boatSize = boatSize;
+
     }
+
+    public String getBoatType() {
+        return boatType;
+    }
+
+    public int getBoatSize() {
+        return boatSize;
+    }
+}
+
 }
