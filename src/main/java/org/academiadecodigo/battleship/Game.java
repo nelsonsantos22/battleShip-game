@@ -6,6 +6,7 @@ public class Game {
 
     private Battlefield battlefield;
 
+
     private Game() {
         this.battlefield = new Battlefield();
     }
@@ -15,7 +16,12 @@ public class Game {
     }
 
     private void start() {
-        //start do game
+        //start do game();
+        //boatPalcement();
+        //checkPosition();
+        //listenTheInput();
+        //checkseéaguaoubarcosebarcokoisenãobarconadaeatualizaGrid();
+
     }
 
     private void boatPlacement() {
@@ -24,8 +30,12 @@ public class Game {
 
 
     private void checkPosition() {
+        // verificar se posição é válida
+        // verificar limites da grid
 
     }
+
+
 
 
 }

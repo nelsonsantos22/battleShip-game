@@ -1,5 +1,6 @@
 package org.academiadecodigo.battleship.server;
 
+import org.academiadecodigo.battleship.Game;
 import org.academiadecodigo.bootcamp.Prompt;
 import org.academiadecodigo.bootcamp.scanners.integer.IntegerInputScanner;
 import org.academiadecodigo.bootcamp.scanners.string.StringInputScanner;
@@ -16,6 +17,8 @@ public class Server {
     private ServerSocket serverSocket;
     private BufferedReader inputBufferedReader;
     private int port;
+
+    Game game;
 
     public Server() {
 
@@ -48,6 +51,9 @@ public class Server {
             while (true) {
 
                 clientSocket = serverSocket.accept();
+
+                PlayerHandler playerHandler = new PlayerHandler(clientSocket);
+                //playerHandler.handleClient();
 
             }
 
