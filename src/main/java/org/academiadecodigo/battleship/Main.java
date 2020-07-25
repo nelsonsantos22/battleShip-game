@@ -5,6 +5,7 @@ import org.academiadecodigo.battleship.server.Server;
 public class Main {
     public static void main(String[] args) {
         Server server = new Server();
+        server.startServer();
     }
 }
 
@@ -20,15 +21,18 @@ FLOW DO GAME
     Ganha quem partir tudo primeiro.
 
 TODO
-     Main -> Instancia novo server
-     Game -> Instacia BattleField, Logica toda do jogo, se foi atingido barco, senao, se partiu  se nao.
-     Menu -> Criar menu.
-     Boat -> Guarda a posiçao inicial, orientaçao, estado, posiçao final
-     BoatType -> ENUM com tipos de boats, e tamanho deles. // Good code
-     Field -> Guarda posiçoes dos barcos de cada 1 dos players.
-     Battlefield -> Instancia Field para cada jogador.
-     BoatFactory -> Instancia novos barcos.
-     PLayerHandler -> Runnable, guarda nome, fica a escuta de informaçao.
-     Server -> Abre novo servidor numa porta e fica a escuta dos players e eventos.
-     Messages -> SOUT'S DO JOGO.
+     Main -> Instancia novo server // GOOD CODE
+     BoatType -> ENUM com tipos de boats, e tamanho deles. // GOOD CODE
+     Menu -> Criar menu. -> RAFA
+     Field -> Guarda posiçoes dos barcos de cada 1 dos players. -> RICARDO
+     Battlefield -> Instancia Field para cada jogador. -> RICARDO
+     Boat -> Guarda a posiçao inicial, orientaçao, estado, posiçao final -> JOANA
+     BoatFactory -> Instancia novos barcos. -> Joana
+     Messages -> SOUT'S DO JOGO. -> Joana
+     Server -> Abre novo servidor numa porta e fica a escuta dos players e eventos. -> NECO
+     PLayerHandler -> Runnable, guarda nome, fica a escuta de informaçao. -> NECO
+     Game -> Instacia BattleField, Logica toda do jogo, se foi atingido barco, senao, se partiu  se nao. -> RAFA
+     Player -> RICARDO
+
+
  */

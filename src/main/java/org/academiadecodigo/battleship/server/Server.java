@@ -24,8 +24,6 @@ public class Server {
 
         init();
 
-        startServer();
-
     }
 
     private void init() {
