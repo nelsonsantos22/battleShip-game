@@ -46,7 +46,7 @@ public class Field {
 
                 if(board[row][column] == -1){
 
-                    playerHandler.getOut().write("\t" + "~");
+                    playerHandler.getOut().write("\t" + "\u001B[36m~\u001B[37m");
                     playerHandler.getOut().flush();
 
                 } else if(board[row][column] == 0){
@@ -56,7 +56,7 @@ public class Field {
 
                 } else if(board[row][column] == 1){
 
-                    playerHandler.getOut().write("\t" + "X");
+                    playerHandler.getOut().write("\t" + "\u001B[31mX\u001B[37m");
                     playerHandler.getOut().flush();
 
                 }

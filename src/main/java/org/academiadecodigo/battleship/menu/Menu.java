@@ -2,6 +2,7 @@ package org.academiadecodigo.battleship.menu;
 
 import org.academiadecodigo.battleship.Game;
 import org.academiadecodigo.battleship.server.PlayerHandler;
+import org.academiadecodigo.battleship.util.Colors;
 import org.academiadecodigo.battleship.util.Messages;
 import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
 

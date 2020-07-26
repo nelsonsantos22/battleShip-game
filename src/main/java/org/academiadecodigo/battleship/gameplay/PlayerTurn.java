@@ -1,6 +1,7 @@
 package org.academiadecodigo.battleship.gameplay;
 
 import org.academiadecodigo.battleship.server.PlayerHandler;
+import org.academiadecodigo.battleship.util.Messages;
 
 import java.io.IOException;
 
@@ -40,7 +41,7 @@ public class PlayerTurn {
 
             if( shoot[0] == ships[ship][0] && shoot[1] == ships[ship][1]){
 
-                System.out.printf(/*Messages.HIT_BOAT +*/ " (%d,%d)\n", shoot[0] + 1, shoot[1] + 1);
+                System.out.printf(Messages.HIT_BOAT + "row %d and column %d\n", shoot[0] + 1, shoot[1] + 1);
                 return true;
 
             }
