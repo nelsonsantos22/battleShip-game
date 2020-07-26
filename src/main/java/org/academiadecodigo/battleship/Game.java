@@ -3,6 +3,7 @@ package org.academiadecodigo.battleship;
 import org.academiadecodigo.battleship.boats.Boat;
 import org.academiadecodigo.battleship.gameplay.Cheat;
 import org.academiadecodigo.battleship.gameplay.PlayerTurn;
+import org.academiadecodigo.battleship.menu.FinalScreen;
 import org.academiadecodigo.battleship.server.PlayerHandler;
 import org.academiadecodigo.battleship.util.Messages;
 
@@ -55,6 +56,8 @@ public class Game {
         }
 
         System.out.println("\n\n\n" + Messages.WIN + attempts + " attempts");
+        FinalScreen.printFinalScreen(playerHandler,attempts);
+
 
     }
 
