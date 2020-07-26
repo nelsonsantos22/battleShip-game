@@ -1,6 +1,7 @@
 package org.academiadecodigo.battleship.server;
 
 import org.academiadecodigo.battleship.menu.Menu;
+import org.academiadecodigo.battleship.util.Colors;
 import org.academiadecodigo.battleship.util.Messages;
 
 import java.io.*;
@@ -41,6 +42,7 @@ public class PlayerHandler implements Runnable{
                     out.flush();
 
                 } else {
+                    out.print("\u001B[2J");
 
                     out.write(menu.getMenu());
                     out.flush();
@@ -56,15 +58,9 @@ public class PlayerHandler implements Runnable{
                 }
 
 
-    /*            if(messageOut == "Quit"){
-
-                    break;
-
-                } else {
-                    out.write(messageOut);
-                    out.flush();
+                if(messageOut == "/quit"){
+                        menu.showMenu();
                 }
-*/
             }
         } catch (IOException e){
 

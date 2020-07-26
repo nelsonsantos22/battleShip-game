@@ -2,6 +2,7 @@ package org.academiadecodigo.battleship.menu;
 
 import org.academiadecodigo.battleship.Game;
 import org.academiadecodigo.battleship.server.PlayerHandler;
+import org.academiadecodigo.battleship.util.Colors;
 import org.academiadecodigo.battleship.util.Messages;
 import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
 
@@ -19,9 +20,11 @@ public class Menu {
         init();
     }
 
+
     public void init(){
         showMenu();
     }
+
 
     public void showMenu() {
 
@@ -30,6 +33,7 @@ public class Menu {
         menu = scanner.getMessage();
 
     }
+
 
     public void onMenuSelection(String option) {
 
@@ -51,9 +55,8 @@ public class Menu {
                 break;
 
         }
-
-
     }
+
 
     public String getMenu() {
         return menu;

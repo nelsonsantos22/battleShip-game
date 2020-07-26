@@ -19,6 +19,9 @@ public class Credits {
 
             StringInputScanner stringInputScanner = new StringInputScanner();
 
+            out.print("\u001B[2J");
+
+
             out.print("\u001B[36m");
             out.print(Messages.LOGO);
             out.print("\u001B[37m");

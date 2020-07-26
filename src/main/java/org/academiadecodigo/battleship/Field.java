@@ -25,6 +25,9 @@ public class Field {
 
     public void showField(int[][] board, PlayerHandler playerHandler){
 
+        playerHandler.getOut().print("\u001B[2J");
+
+
         playerHandler.getOut().write("\n");
         playerHandler.getOut().write("\n");
         playerHandler.getOut().write("\n");
