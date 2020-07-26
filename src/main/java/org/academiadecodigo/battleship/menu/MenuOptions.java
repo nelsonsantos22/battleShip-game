@@ -9,13 +9,11 @@ public enum MenuOptions {
 
     START_GAME(1, Messages.MENU_START_GAME),
 
-    JOIN_GAME(2, Messages.MENU_JOIN_GAME),
+    HOW_TO_PLAY(2, Messages.MENU_HOW_TO_PLAY),
 
     CREDITS(3, Messages.MENU_CREDITS),
 
-    HOW_TO_PLAY(4, Messages.MENU_HOW_TO_PLAY),
-
-    QUIT(5, Messages.MENU_QUIT);
+    QUIT(4, Messages.MENU_QUIT);
 
     private int option;
     private String message;

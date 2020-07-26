@@ -12,6 +12,7 @@ public class Menu {
     private PlayerHandler playerHandler;
     private Game game = new Game();
 
+
     public Menu(PlayerHandler playerHandler) {
         this.playerHandler = playerHandler;
         //this.game = game;
@@ -38,17 +39,17 @@ public class Menu {
                 game.start(playerHandler);
                 break;
             case "2":
-                //playerHandler.setMessageOut(MenuOptions.JOIN_GAME.getMessage());
+                new HowToPlay().printHTP(playerHandler);
+                showMenu();
                 break;
             case "3":
-                //playerHandler.setMessageOut("Game created by Neco, Joana, Ricardo e Rafa");
+                new Credits().printCredits(playerHandler);
+                showMenu();
                 break;
             case "4":
-                //playerHandler.setMessageOut("HOW TO PLAY \n to place and atack write the coordinates like this example '1:5' and this will atack the position 1 5");
+                playerHandler.close();
                 break;
-            case "5":
-                //playerHandler.setMessageOut(MenuOptions.QUIT.getMessage());
-                break;
+
         }
 
 

@@ -14,6 +14,7 @@ public class PlayerHandler implements Runnable{
     private String messageOut;
     private Menu menu;
     private BufferedReader in;
+    private boolean exit;
 
 
     public PlayerHandler(Socket playerSocket){
@@ -46,16 +47,16 @@ public class PlayerHandler implements Runnable{
                     messageIn = in.readLine();
                 }
 
-
-                if (messageIn == null || messageIn.equals("/quit")) {
-                    in.close();
-                    clientSocket.close();
-                    break;
-                }
-
                 menu.onMenuSelection(messageIn);
 
-                if(messageOut == "Quit"){
+                if (exit) {
+                    in.close();
+                    clientSocket.close();
+                    return;
+                }
+
+
+    /*            if(messageOut == "Quit"){
 
                     break;
 
@@ -63,7 +64,7 @@ public class PlayerHandler implements Runnable{
                     out.write(messageOut);
                     out.flush();
                 }
-
+*/
             }
         } catch (IOException e){
 
@@ -71,6 +72,25 @@ public class PlayerHandler implements Runnable{
             e.printStackTrace();
         }
 
+    }
+
+    public void close() {
+
+        this.exit = true;
+
+       /* try {
+
+            if (playerSocket != null) {
+                System.out.println("Client has left the building");
+
+                playerSocket.close();
+            }
+
+        } catch (IOException e) {
+
+            System.out.println("Connection with client terminated " + e.getMessage());
+
+        }*/
     }
 
 
@@ -88,5 +108,9 @@ public class PlayerHandler implements Runnable{
 
     public BufferedReader getIn() {
         return in;
+    }
+
+    public Socket getPlayerSocket() {
+        return playerSocket;
     }
 }
