@@ -1,38 +1,85 @@
 package org.academiadecodigo.battleship;
 
+import org.academiadecodigo.battleship.gameplay.PlayerTurn;
+import org.academiadecodigo.battleship.server.PlayerHandler;
 import org.academiadecodigo.battleship.util.Messages;
 
 public class Field {
-    private String[][] field = new String[50][50];
 
+    private int[][] field;
 
-    public void setBoat(int position1, int position2, String boat) {
-        field[position1][position2] = boat;
-    }
-
-    public void shoot(int position1, int position2){
-        if(field[position1][position2] == "~") {
-
-            field[position1][position2] = "o";
-            System.out.println(Messages.HIT_WATER_SHOOT);
-            return;
-
-        }
-
-        if(field[position1][position2] != "~") {
-
-            field[position1][position2] = "x";
-            System.out.println(Messages.HIT_BOAT_SHOOT);
-            return;
-
-        }
-
-        if(field[position1][position2] == "o") {
-
-            System.out.println(Messages.HIT_WATER_SHOOT);
-            return;
-
-        }
+    public Field(){
+       field = new int[10][10];
 
     }
+
+
+    public void init(){
+
+        for(int row=0 ; row < 10 ; row++ ) {
+            for (int column = 0; column < 10; column++) {
+                field[row][column] = -1;
+            }
+        }
+    }
+
+    public void showField(int[][] board, PlayerHandler playerHandler){
+
+        playerHandler.getOut().write("\n");
+        playerHandler.getOut().write("\n");
+        playerHandler.getOut().write("\n");
+        playerHandler.getOut().write("\n");
+
+        playerHandler.getOut().write("                                           COLUMN\n\n");
+        playerHandler.getOut().write("\t1 \t2 \t3 \t4 \t5 \t6 \t7 \t8 \t9 \t10 \n");
+        playerHandler.getOut().write("");
+
+
+        for(int row = 0 ; row < 10 ; row++ ){
+
+            playerHandler.getOut().write((row + 1) + "");
+            playerHandler.getOut().flush();
+
+            for(int column = 0 ; column < 10 ; column++ ){
+
+                if(board[row][column] == -1){
+
+                    playerHandler.getOut().write("\t" + "~");
+                    playerHandler.getOut().flush();
+
+                } else if(board[row][column] == 0){
+
+                    playerHandler.getOut().write("\t" + "O");
+                    playerHandler.getOut().flush();
+
+                } else if(board[row][column] == 1){
+
+                    playerHandler.getOut().write("\t" + "X");
+                    playerHandler.getOut().flush();
+
+                }
+            }
+
+            playerHandler.getOut().write("\n");
+            playerHandler.getOut().flush();
+        }
+    }
+
+    public void fieldUpdate(int[] shoot, int[][] ships, int[][] board, PlayerTurn playerTurn){
+
+        if(playerTurn.hit(shoot,ships)) {
+
+            board[shoot[0]][shoot[1]] = 1;
+
+        } else {
+
+            board[shoot[0]][shoot[1]] = 0;
+
+        }
+    }
+
+    public int[][] getField() {
+        return field;
+    }
+
 }

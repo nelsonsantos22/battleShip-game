@@ -1,32 +1,40 @@
 package org.academiadecodigo.battleship.boats;
 
-import java.util.ArrayList;
+import java.util.Random;
 
-public class Boat {
+public class Boat  {
 
-    //private BoatType boatType;
-    private int posX, posY;
-    protected int size;
-    private BoatOrientation boatOrientation;
-    private ArrayList<Position> positionsArrayList = new ArrayList<>();
+    private int[][] boats;
 
+    public Boat(){
+        this.boats = new int[5][2];
 
-    public Boat(BoatOrientation boatOrientation, int posX, int posY) {
-        //this.boatType = boatType;
-        this.boatOrientation = boatOrientation;
-        this.posY = posX;
-        this.posY = posY;
-
-        Position position = new Position(this.posX, this.posY);
-        positionsArrayList.add(position);
     }
 
+    public void init(){
 
-    private int getPosX() {
-        return this.posX;
+        Random random = new Random();
+
+        for(int boat = 0 ; boat < 5 ; boat++){
+
+            boats[boat][0]=random.nextInt(10);
+            boats[boat][1]=random.nextInt(10);
+
+            for(int last = 0 ; last < boat ; last++){
+
+                if( (boats[boat][0] == boats[last][0]) && (boats[boat][1] == boats[last][1]) ) {
+
+                    while ((boats[boat][0] == boats[last][0]) && (boats[boat][1] == boats[last][1])) {
+
+                        boats[boat][0] = random.nextInt(10);
+                        boats[boat][1] = random.nextInt(10);
+                    }
+                }
+            }
+        }
     }
 
-    private int getPosY() {
-        return this.posY - 1;
+    public int[][] getBoats() {
+        return boats;
     }
 }

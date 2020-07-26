@@ -1,80 +1,64 @@
 package org.academiadecodigo.battleship;
 
+import org.academiadecodigo.battleship.boats.Boat;
+import org.academiadecodigo.battleship.gameplay.Cheat;
+import org.academiadecodigo.battleship.gameplay.PlayerTurn;
+import org.academiadecodigo.battleship.server.PlayerHandler;
 import org.academiadecodigo.battleship.util.Messages;
 
-public class Game {
-    Field field1, field2;
-    Player player1, player2;
 
-    private String action;
-    private int counter = 0;
-    private int countGame = 0;
+public class Game {
+
+
+    PlayerTurn playerTurn;
+    Field field;
+    Boat boat;
+    Cheat cheat;
+
+    int attempts=0, shotHit=0;
 
     public Game() {
-        countGame++;
     }
 
-    private void init() {
-        //inicializa coisinhas
-    }
+    public void start(PlayerHandler playerHandler) {
 
-    public void start() {
-        counter++;
-        if(counter==2){
-            System.out.println("game has started..."+counter);
+        field = new Field();
+        boat = new Boat();
+        playerTurn = new PlayerTurn();
+        cheat = new Cheat();
+
+        field.init();
+        boat.init();
+
+
+
+        System.out.println();
+
+        while (shotHit != 5){
+
+            field.showField(field.getField(), playerHandler);
+            playerTurn.shoot(playerTurn.getShoot(), playerHandler);
+            attempts++;
+
+            if(playerTurn.hit(playerTurn.getShoot(), boat.getBoats())){
+                cheat.hint(playerTurn.getShoot(), boat.getBoats(), this);
+                shotHit++;
+
+            } else {
+
+                cheat.hint(playerTurn.getShoot(), boat.getBoats(), this);
+
+            }
+
+            field.fieldUpdate(playerTurn.getShoot(), boat.getBoats(), field.getField(), playerTurn);
 
         }
-        System.out.println(counter);
-        //start do game();
-        //listenTheInput();
-        //checkseéaguaoubarcosebarcokoisenãobarconadaeatualizaGrid();
 
-    }
-
-    private void boatPlacement(int position1, int position2, int player, String boat) {
-        //recebe input do player e guarda num array as posiçoes
-
-        if(position1 > 50 || position2 > 50) {
-            System.out.println(Messages.ERROR_PLACE_BOATS);
-            return;
-        }
-
-        if(player == 1) {
-            field1.setBoat(position1, position2,boat);
-            return;
-        }
-
-        if(player == 2) {
-            field2.setBoat(position1,position2,boat);
-            return;
-        }
-    }
-
-
-    private void checkPosition(int position1, int position2, int player) {
-
-        if(position1 > 50 || position2 > 50) {
-            System.out.println(Messages.ERROR_PLACE_BOATS);
-            return;
-        }
-
-        if(player == 1) {
-            field2.shoot(position1, position2);
-            return;
-        }
-
-        if(player == 2) {
-            field1.shoot(position1, position2);
-            return;
-        }
+        System.out.println("\n\n\n" + Messages.WIN + attempts + " attempts");
 
     }
 
-    public void setAction(String action) {
-        this.action = action;
-    }
-
-    public String getAction() {
-        return action;
+    public int getAttempts() {
+        return attempts;
     }
 }

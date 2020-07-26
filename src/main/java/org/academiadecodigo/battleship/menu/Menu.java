@@ -10,11 +10,11 @@ public class Menu {
 
     private String menu;
     private PlayerHandler playerHandler;
-    private Game game;
+    private Game game = new Game();
 
-    public Menu(PlayerHandler playerHandler, Game game) {
+    public Menu(PlayerHandler playerHandler) {
         this.playerHandler = playerHandler;
-        this.game = game;
+        //this.game = game;
         init();
     }
 
@@ -35,19 +35,19 @@ public class Menu {
         switch (option) {
             case "1":
                 System.out.println(MenuOptions.START_GAME.getMessage());
-                game.start();
+                game.start(playerHandler);
                 break;
             case "2":
-                playerHandler.setMessageOut(MenuOptions.JOIN_GAME.getMessage());
+                //playerHandler.setMessageOut(MenuOptions.JOIN_GAME.getMessage());
                 break;
             case "3":
-                playerHandler.setMessageOut("Game created by Neco, Joana, Ricardo e Rafa");
+                //playerHandler.setMessageOut("Game created by Neco, Joana, Ricardo e Rafa");
                 break;
             case "4":
-                playerHandler.setMessageOut("HOW TO PLAY \n to place and atack write the coordinates like this example '1:5' and this will atack the position 1 5");
+                //playerHandler.setMessageOut("HOW TO PLAY \n to place and atack write the coordinates like this example '1:5' and this will atack the position 1 5");
                 break;
             case "5":
-                playerHandler.setMessageOut(MenuOptions.QUIT.getMessage());
+                //playerHandler.setMessageOut(MenuOptions.QUIT.getMessage());
                 break;
         }
 
