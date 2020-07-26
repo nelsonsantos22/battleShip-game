@@ -56,7 +56,7 @@ public class Server {
 
                 clientSocket = serverSocket.accept();
 
-                PlayerHandler playerHandler = new PlayerHandler(clientSocket, game);
+                PlayerHandler playerHandler = new PlayerHandler(clientSocket);
                 fixedPool.execute(playerHandler);
                 list.add(playerHandler);
 
