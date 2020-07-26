@@ -1,7 +1,6 @@
 package org.academiadecodigo.battleship.server;
 
 import org.academiadecodigo.battleship.menu.Menu;
-import org.academiadecodigo.battleship.util.Colors;
 import org.academiadecodigo.battleship.util.Messages;
 
 import java.io.*;
@@ -74,19 +73,6 @@ public class PlayerHandler implements Runnable{
 
         this.exit = true;
 
-       /* try {
-
-            if (playerSocket != null) {
-                System.out.println("Client has left the building");
-
-                playerSocket.close();
-            }
-
-        } catch (IOException e) {
-
-            System.out.println("Connection with client terminated " + e.getMessage());
-
-        }*/
     }
 
 

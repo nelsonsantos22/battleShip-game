@@ -2,7 +2,6 @@ package org.academiadecodigo.battleship;
 
 import org.academiadecodigo.battleship.gameplay.PlayerTurn;
 import org.academiadecodigo.battleship.server.PlayerHandler;
-import org.academiadecodigo.battleship.util.Messages;
 
 public class Field {
 
