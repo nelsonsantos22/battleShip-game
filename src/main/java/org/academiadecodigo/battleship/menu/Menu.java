@@ -38,16 +38,16 @@ public class Menu {
                 game.start();
                 break;
             case "2":
-                System.out.println(MenuOptions.JOIN_GAME.getMessage());
+                playerHandler.setMessageOut(MenuOptions.JOIN_GAME.getMessage());
                 break;
             case "3":
-                System.out.println(MenuOptions.CREDITS.getMessage());
+                playerHandler.setMessageOut("Game created by Neco, Joana, Ricardo e Rafa");
                 break;
             case "4":
-                System.out.println(MenuOptions.HOW_TO_PLAY.getMessage());
+                playerHandler.setMessageOut("HOW TO PLAY \n to place and atack write the coordinates like this example '1:5' and this will atack the position 1 5");
                 break;
             case "5":
-                System.out.println(MenuOptions.QUIT.getMessage());
+                playerHandler.setMessageOut(MenuOptions.QUIT.getMessage());
                 break;
         }
 
