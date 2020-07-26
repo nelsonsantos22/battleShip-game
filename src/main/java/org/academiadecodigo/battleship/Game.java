@@ -40,7 +40,7 @@ public class Game {
             playerTurn.shoot(playerTurn.getShoot(), playerHandler);
             attempts++;
 
-            if(playerTurn.hit(playerTurn.getShoot(), boat.getBoats())){
+            if(playerTurn.hit(playerTurn.getShoot(), boat.getBoats(), playerHandler)){
                 cheat.hint(playerTurn.getShoot(), boat.getBoats(), this);
                 shotHit++;
 
@@ -50,7 +50,7 @@ public class Game {
 
             }
 
-            field.fieldUpdate(playerTurn.getShoot(), boat.getBoats(), field.getField(), playerTurn);
+            field.fieldUpdate(playerTurn.getShoot(), boat.getBoats(), field.getField(), playerTurn, playerHandler);
 
         }
 

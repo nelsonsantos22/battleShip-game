@@ -38,7 +38,6 @@ public class Menu {
 
         switch (option) {
             case "1":
-                System.out.println(MenuOptions.START_GAME.getMessage());
                 game.start(playerHandler);
                 break;
             case "2":

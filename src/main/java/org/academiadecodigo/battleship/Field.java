@@ -67,9 +67,9 @@ public class Field {
         }
     }
 
-    public void fieldUpdate(int[] shoot, int[][] ships, int[][] board, PlayerTurn playerTurn){
+    public void fieldUpdate(int[] shoot, int[][] ships, int[][] board, PlayerTurn playerTurn, PlayerHandler playerHandler){
 
-        if(playerTurn.hit(shoot,ships)) {
+        if(playerTurn.hit(shoot,ships, playerHandler)) {
 
             board[shoot[0]][shoot[1]] = 1;
 
