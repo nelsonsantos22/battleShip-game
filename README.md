@@ -19,7 +19,7 @@ We were challenged to create an terminal based app in Java within 48h. The app s
 <h3>Game instructions</h3>
 
 <strong>You have to destroy the 5 hidden boats.
-You have to pick a number between 1 and 10 to choose the row and again to choose the column.\n\nThe game ends when you destroy the 5 boats.</strong>
+You have to pick a number between 1 and 10 to choose the row and again to choose the column. The game ends when you destroy the 5 boats.</strong>
 
 <h4>Legend:</h4>
 
