@@ -11,19 +11,10 @@ We were challenged to create an terminal based app in Java within 48h. The app s
 - bonus: use MVC structure.
 
 <h3>Tech & methodologies</h3>
-- Java7;
-- Server-client architecture;
-- Maven;
-- Netcat;
-- IntelliJ;
-- Git;
-- Concurrency;
+- Java7, Server-client architecture, Maven, Netcat, IntelliJ, Git and Concurrency.
 
 <h3>Team members</h3>
-- Nelson Santos;
-- Joana Marques;
-- Rafael Moreira;
-- Ricardo Pinho.
+- Nelson Santos, Joana Marques, Rafael Moreira and Ricardo Pinho.
 
 <h3>Game instructions</h3>
 
